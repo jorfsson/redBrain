@@ -5,7 +5,7 @@ const parsedData = JSON.parse(data)
 
 const lstm = new brain.recurrent.LSTM({
   activation: 'sigmoid', // activation function
-  hiddenLayers: [4]
+  hiddenLayers: [3]
 });
 
 lstm.train(parsedData, { iterations: 10000, log: true, learningRate: 0.3, callback: (data)=>{
