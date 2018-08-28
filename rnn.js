@@ -3,9 +3,12 @@ const fs = require('fs')
 const data = fs.readFileSync('./data/commentPairs.txt')
 const parsedData = JSON.parse(data)
 
-const lstm = new brain.recurrent.LSTM();
+const lstm = new brain.recurrent.LSTM({
+  activation: 'sigmoid', // activation function
+  hiddenLayers: [4]
+});
 
-lstm.train(parsedData, { iterations: 1, log: true, learningRate: 0.3, callback: (data)=>{
+lstm.train(parsedData, { iterations: 10000, log: true, learningRate: 0.3, callback: (data)=>{
   console.log('iteration sample: ' + lstm.run('Hello, how are you today?'))} })
 
 const JSONbrain = JSON.stringify(lstm.toJSON())
