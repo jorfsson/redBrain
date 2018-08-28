@@ -8,7 +8,7 @@ const lstm = new brain.recurrent.LSTM({
   hiddenLayers: [3]
 });
 
-lstm.train(parsedData, { iterations: 10000, log: true, learningRate: 0.3, callback: (data)=>{
+lstm.train(parsedData, { iterations: 4000, log: true, learningRate: 0.3, callback: (data)=>{
   console.log('iteration sample: ' + lstm.run('Hello, how are you today?'))} })
 
 const JSONbrain = JSON.stringify(lstm.toJSON())
